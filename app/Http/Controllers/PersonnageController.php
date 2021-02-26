@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Personnage;
 use Illuminate\Http\Request;
-use App\Http\Requests\StorePersonnage;
+use Illuminate\Support\Facades\Validator;
 
 class PersonnageController extends Controller
 {
@@ -24,13 +24,32 @@ class PersonnageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePersonnage $request)
+    public function store(Request $request)
     {
-      $request->validated();
+      if($this->user()->can('post')){
+         
+      $validator = Validator::make($request->all(), [
+            'firstname' => 'required|unique:personnages|string|max:255',
+            'lastname' => 'nullable|max:255',
+            'age' => 'nullable|numeric|max:10',
+            'species' => 'nullable|max:255',
+            'faction' => 'required|string|max:255',
+            'actor' => 'nullable|max:255',
+      ]);
+
+      if ($validator->fails()) {
+         return response()->json($validator->errors(), 422);
+     }
+
 
       $personnage = Personnage::create($request->all());
 
       return response()->json($personnage, 200);
+      } 
+      else 
+      {
+         return response()->json('Action non autorisé', 401, $headers);
+      }
     }
 
     /**
