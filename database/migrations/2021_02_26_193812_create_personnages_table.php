@@ -21,7 +21,6 @@ class CreatePersonnagesTable extends Migration
             $table->string('species')->nullable();
             $table->string('faction');
             $table->string('actor')->nullable();
-            $table->string('image');
             $table->timestamps();
         });
     }

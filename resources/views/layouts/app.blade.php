@@ -78,20 +78,9 @@
                 </div>
             </div>
         </nav>
-
-        <div class="card text-white">
-         <img id="background" src="{{ asset('/image/background1.jpg') }}" class="img-fluid card-img" alt="Image d'accueil">
-         <div class="card-img-overlay text-center mt-5">
-           <strong class="card-title">
-            <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Stargate SG1</strong></h1>
-            <a class="btn btn-light mt-4">{{ __('Comment utiliser l\'API') }}</a>
-         </strong>
-         </div>
-       </div>
-
        </header>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

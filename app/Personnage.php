@@ -12,7 +12,7 @@ class Personnage extends Model
    * @var array
    */
    protected $fillable = [
-      'lastname', 'firstname', 'age', 'species', 'faction', 'actor', 'image'
+      'lastname', 'firstname', 'age', 'species', 'faction', 'actor'
    ];
 
   /**

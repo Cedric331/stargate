@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Personnage;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePersonnage;
 
 class PersonnageController extends Controller
 {
@@ -23,9 +24,13 @@ class PersonnageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePersonnage $request)
     {
-        
+      $request->validated();
+
+      $personnage = Personnage::create($request->all());
+
+      return response()->json($personnage, 200);
     }
 
     /**
