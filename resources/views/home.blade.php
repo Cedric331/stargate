@@ -4,7 +4,9 @@
 
 <section>
    <div class="card text-white">
-      <img id="background" src="{{ asset('/image/background1.jpg') }}" class="img-fluid card-img" alt="Image d'accueil">
+      <video loop playsinline autoplay muted id="bgvid">
+         <source  src="{{ asset('video/stargate.mp4') }}" type="video/mp4"/>
+      </video>
       <div class="card-img-overlay text-center mt-5">
         <strong class="card-title">
          <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Stargate SG1</strong></h1>

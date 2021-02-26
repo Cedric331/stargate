@@ -141,12 +141,14 @@ class PersonnageController extends Controller
      */
     public function destroy($name)
     {
-         $personnage = Personnage::where('firstname', $name)->delete();
+      if($this->user()->can('post'))
+      {
+         Personnage::where('firstname', $name)->delete();
 
          return response()->json('personnage supprimé', 200);
-
-  
+      }
+      else {
          return response()->json('Action non autorisé', 401);
-      
+      }
     }
 }
