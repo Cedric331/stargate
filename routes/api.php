@@ -19,4 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('personnages', 'PersonnageController@index');
+Route::get('personnages/name/{name}', 'PersonnageController@showName');
+Route::get('personnages/faction/{faction}', 'PersonnageController@showfaction');
+
 Route::post('personnages', 'PersonnageController@store');
+
+Route::patch('personnages/{name}', 'PersonnageController@update');
+Route::delete('personnages/{name}', 'PersonnageController@destroy');
