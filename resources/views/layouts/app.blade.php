@@ -19,30 +19,32 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <header>
+         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('image/logo.png') }}" id="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                           <a class="nav-link" href="#">{{ __('Documentation') }}</a>
+                        </li>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -75,6 +77,21 @@
                 </div>
             </div>
         </nav>
+         <div class="view jarallax" id="background">
+           <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+             <div class="container my-auto">
+               <div class="row">
+                 <div class="col-md-12 mb-4 text-white text-center">
+                   <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0 pt-md-5 pt-5"
+                     data-wow-delay="0.3s"><strong>Stargate SG1</strong></h1>
+                   <h5 class="text-uppercase mb-4 text-white"><strong>{{ __('Retrouvez l\'univers de Stargate') }}</strong></h5>
+                   <a class="btn btn-outline-light">{{ __('Comment utiliser l\'API') }}</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </header>
 
         <main class="py-4">
             @yield('content')
