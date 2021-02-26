@@ -25,7 +25,7 @@ class PersonnageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
