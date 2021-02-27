@@ -18,11 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('personnages', 'PersonnageController@index');
-Route::get('personnages/name/{name}', 'PersonnageController@showName');
-Route::get('personnages/faction/{faction}', 'PersonnageController@showfaction');
+Route::middleware('auth:api')->get('personnages', 'PersonnageController@index');
+Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName');
+Route::middleware('auth:api')->get('personnages/faction/{faction}', 'PersonnageController@showfaction');
 
-Route::post('personnages', 'PersonnageController@store');
+Route::middleware('auth:api')->post('personnages', 'PersonnageController@store');
 
-Route::patch('personnages/{name}', 'PersonnageController@update');
-Route::delete('personnages/{name}', 'PersonnageController@destroy');
+Route::middleware('auth:api')->patch('personnages/{name}', 'PersonnageController@update');
+Route::middleware('auth:api')->delete('personnages/{name}', 'PersonnageController@destroy');
