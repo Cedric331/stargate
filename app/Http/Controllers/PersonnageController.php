@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Personnage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 
 class PersonnageController extends Controller
@@ -26,7 +28,7 @@ class PersonnageController extends Controller
      */
     public function store(Request $request)
     {
-      if($this->user()->can('post')){
+      if(Gate::check('post', [Auth::user()])){
          
       $validator = Validator::make($request->all(), [
             'firstname' => 'required|unique:personnages|string|max:255',
