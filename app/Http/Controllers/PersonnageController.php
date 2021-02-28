@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class PersonnageController extends Controller
 {
-        /**
-     * Display a listing of the resource.
+      /**
+     * Récupère l'ensemble des personnages
      *
      * @return \Illuminate\Http\Response
      */
@@ -21,7 +21,7 @@ class PersonnageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Stock un nouveau personnage ans la base de donnée
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -53,10 +53,10 @@ class PersonnageController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Permet de récupérer les personnages via le nom
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param [string] $name
+     * @return string
      */
     public function showName($name)
     {
@@ -72,12 +72,12 @@ class PersonnageController extends Controller
        
     }
 
-        /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   /**
+    * Permet de récupérer les personnages via la planète
+    *
+    * @param [string] $planete
+    * @return void
+    */
     public function showPlanete($planete)
     {
        $personnages = Personnage::where('planete', $planete)->get();
@@ -93,10 +93,10 @@ class PersonnageController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Permet de modifier un personnage de la base de donnée avec son nom
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param [string] $name
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $name)
@@ -131,16 +131,16 @@ class PersonnageController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime un personnage
      *
-     * @param  int  $id
+     * @param  string  $name
      * @return \Illuminate\Http\Response
      */
     public function destroy($name)
     {
       if(Gate::check('post', [Auth::user()])){
 
-         Personnage::where('name', $name)->delete();
+         Personnage::where('name','LIKE','%'.$name.'%')->delete();
 
 
          return response()->json('personnage supprimé', 200);

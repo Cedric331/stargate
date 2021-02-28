@@ -23,11 +23,11 @@ class Personnage extends Model
    * @var array
    */
   protected $hidden = [
-      'id', 'updated_at', 'created_at'
+      'id', 'updated_at', 'created_at', 'planete_id'
   ];
 
-      /**
-     * Get the planetes that wrote the people.
+   /**
+     * Récupère la planète du personnage
      */
     public function planete()
     {
