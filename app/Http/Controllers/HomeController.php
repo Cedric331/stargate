@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Planete;
+use App\Personnage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 

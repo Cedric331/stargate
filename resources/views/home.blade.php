@@ -3,9 +3,7 @@
 @section('content')
 <section>
    <div class="card text-white">
-      <video loop playsinline autoplay muted id="bgvid">
-         <source  src="{{ asset('video/stargate.mp4') }}" type="video/mp4"/>
-      </video>
+     <img src="{{ asset('image/fond.jpg') }}" class="img-fluid"/>
       <div class="card-img-overlay text-center mt-5">
         <strong class="card-title">
          <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Star Wars</strong></h1>
