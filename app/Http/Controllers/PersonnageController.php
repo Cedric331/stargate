@@ -103,8 +103,7 @@ class PersonnageController extends Controller
      */
     public function update(Request $request, $name)
     {
-      if($this->user()->can('post'))
-      {
+      if(Gate::check('post', [Auth::user()])){
 
          $validator = Validator::make($request->all(), [
                'lastname' => 'nullable|max:255',
@@ -143,13 +142,15 @@ class PersonnageController extends Controller
      */
     public function destroy($name)
     {
-      if($this->user()->can('post'))
-      {
+      if(Gate::check('post', [Auth::user()])){
+
          Personnage::where('firstname', $name)->delete();
+
 
          return response()->json('personnage supprimé', 200);
       }
-      else {
+      else 
+      {
          return response()->json('Action non autorisé', 401);
       }
     }

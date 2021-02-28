@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <section>
    <div class="card text-white">
       <video loop playsinline autoplay muted id="bgvid">
@@ -9,15 +8,13 @@
       </video>
       <div class="card-img-overlay text-center mt-5">
         <strong class="card-title">
-         <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Stargate SG1</strong></h1>
+         <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Star Wars</strong></h1>
          <a class="btn btn-light mt-4">{{ __('Comment utiliser l\'API') }}</a>
       </strong>
       </div>
     </div>
 </section>
 
-<passport-clients></passport-clients>
-<passport-authorized-clients></passport-authorized-clients>
 <passport-personal-access-tokens></passport-personal-access-tokens>
 
 <div class="container my-5">
