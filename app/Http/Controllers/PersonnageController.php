@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\Personnage as PersonnageRessource;
 
 class PersonnageController extends Controller
 {
@@ -17,7 +18,9 @@ class PersonnageController extends Controller
      */
     public function index()
     {
-        return Personnage::all();
+       $perso = Personnage::find(1);
+      return new PersonnageRessource($perso);
+      //   return Personnage::all();
     }
 
     /**

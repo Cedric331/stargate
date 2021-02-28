@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('personnages', 'PersonnageController@index')->name('api-index');
-Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName')->name('api-showName');
-Route::middleware('auth:api')->get('personnages/faction/{faction}', 'PersonnageController@showfaction')->name('api-showfaction');
+Route::middleware('auth:api')->get('personnages', 'PersonnageController@index');
+Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName');
+Route::middleware('auth:api')->get('personnages/faction/{faction}', 'PersonnageController@showfaction');
 
 Route::middleware('auth:api')->post('admin/personnages', 'PersonnageController@store')->name('admin-store');
-
 Route::middleware('auth:api')->patch('admin/personnages/{name}', 'PersonnageController@update')->name('admin-update');
 Route::middleware('auth:api')->delete('admin/personnages/{name}', 'PersonnageController@destroy')->name('admin-destroy');
+
+Route::middleware('auth:api')->get('planetes', 'PlaneteController@index');
+Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName');

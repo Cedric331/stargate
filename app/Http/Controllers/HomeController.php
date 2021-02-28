@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Planete;
 use Illuminate\Http\Request;
 
 
@@ -24,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+      $planete = Planete::find(1);
+      dd($planete);
         return view('home');
     }
 
@@ -34,6 +37,7 @@ class HomeController extends Controller
      */
     public function docs()
     {
+
         return view('docs.index');
     }
 }
