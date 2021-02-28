@@ -60,7 +60,7 @@ class PersonnageController extends Controller
      */
     public function showName($name)
     {
-       $personnage = Personnage::where('name', $name)->get();
+       $personnage = Personnage::where('name','LIKE','%'.$name.'%')->get();
 
        if ($personnage->count() == 0) {
           return response()->json('Aucun résultat', 404);
