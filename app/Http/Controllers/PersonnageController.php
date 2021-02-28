@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Planete;
 use App\Personnage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +19,18 @@ class PersonnageController extends Controller
      */
     public function index()
     {
-       $perso = Personnage::find(1);
-      return new PersonnageRessource($perso);
-      //   return Personnage::all();
+      return PersonnageRessource::collection(Personnage::all());
+    }
+
+   /**
+     * Récupère l'ensemble des personnages avec pagination
+     * $pagination par défault à comme valeur 15
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPaginate($pagination = 15)
+    {
+      return PersonnageRessource::collection(Personnage::paginate($pagination));
     }
 
     /**
@@ -63,34 +73,15 @@ class PersonnageController extends Controller
      */
     public function showName($name)
     {
-       $personnage = Personnage::where('name','LIKE','%'.$name.'%')->get();
 
-       if ($personnage->count() == 0) {
-          return response()->json('Aucun résultat', 404);
-       } 
-       else 
-       {
-          return response()->json($personnage, 200);
-       }
-       
-    }
-
-   /**
-    * Permet de récupérer les personnages via la planète
-    *
-    * @param [string] $planete
-    * @return void
-    */
-    public function showPlanete($planete)
-    {
-       $personnages = Personnage::where('planete', $planete)->get();
+       $personnages = Personnage::where('name','LIKE','%'.$name.'%')->get();
 
        if ($personnages->count() == 0) {
           return response()->json('Aucun résultat', 404);
        } 
        else 
        {
-          return response()->json($personnages, 200);
+          return PersonnageRessource::collection($personnages);
        }
        
     }

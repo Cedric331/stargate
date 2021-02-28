@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Personnage extends Model
 {
-   protected $with = ['planete'];
-
     /**
    * The attributes that are mass assignable.
    *
@@ -31,6 +29,6 @@ class Personnage extends Model
      */
     public function planete()
     {
-      return $this->belongsTo(Planete::class, 'planete_id');
+      return $this->belongsTo(Planete::class);
     }
 }

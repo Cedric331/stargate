@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('personnages', 'PersonnageController@index');
+Route::middleware('auth:api')->get('personnages/{pagination}', 'PersonnageController@indexPaginate');
 Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName');
-Route::middleware('auth:api')->get('personnages/faction/{faction}', 'PersonnageController@showfaction');
 
 Route::middleware('auth:api')->post('admin/personnages', 'PersonnageController@store')->name('admin-store');
 Route::middleware('auth:api')->patch('admin/personnages/{name}', 'PersonnageController@update')->name('admin-update');

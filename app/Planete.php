@@ -23,11 +23,11 @@ class Planete extends Model
     * @var array
     */
    protected $hidden = [
-      'updated_at', 'created_at'
+      'updated_at', 'created_at', 'id'
    ];
 
    public function personnages()
    {
-      return $this->belongsTo(Personnage::class);
+      return $this->hasMany(Personnage::class, 'planete_id', 'id');
    }
 }

@@ -25,8 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $planete = Planete::find(1);
-      dd($planete);
         return view('home');
     }
 
