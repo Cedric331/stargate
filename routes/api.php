@@ -14,16 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth:api')->get('personnages', 'PersonnageController@index')->name('api-index');
+Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName')->name('api-showName');
+Route::middleware('auth:api')->get('personnages/faction/{faction}', 'PersonnageController@showfaction')->name('api-showfaction');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->post('admin/personnages', 'PersonnageController@store')->name('admin-store');
 
-Route::middleware('auth:api')->get('personnages', 'PersonnageController@index');
-Route::middleware('auth:api')->get('personnages/name/{name}', 'PersonnageController@showName');
-Route::middleware('auth:api')->get('personnages/faction/{faction}', 'PersonnageController@showfaction');
-
-Route::middleware('auth:api')->post('personnages', 'PersonnageController@store');
-
-Route::middleware('auth:api')->patch('personnages/{name}', 'PersonnageController@update');
-Route::middleware('auth:api')->delete('personnages/{name}', 'PersonnageController@destroy');
+Route::middleware('auth:api')->patch('admin/personnages/{name}', 'PersonnageController@update')->name('admin-update');
+Route::middleware('auth:api')->delete('admin/personnages/{name}', 'PersonnageController@destroy')->name('admin-destroy');
