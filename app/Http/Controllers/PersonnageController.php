@@ -31,12 +31,10 @@ class PersonnageController extends Controller
       if(Gate::check('post', [Auth::user()])){
          
       $validator = Validator::make($request->all(), [
-            'firstname' => 'required|unique:personnages|string|max:255',
-            'lastname' => 'nullable|max:255',
-            'age' => 'nullable|numeric|max:10',
-            'species' => 'nullable|max:255',
-            'faction' => 'required|string|max:255',
-            'actor' => 'nullable|max:255',
+            'name' => 'required|unique:personnages|string|max:255',
+            'height' => 'required',
+            'planete' => 'nullable',
+            'gender' => 'required|max:255',
       ]);
 
       if ($validator->fails()) {
@@ -62,7 +60,7 @@ class PersonnageController extends Controller
      */
     public function showName($name)
     {
-       $personnage = Personnage::where('firstname', $name)->get();
+       $personnage = Personnage::where('name', $name)->get();
 
        if ($personnage->count() == 0) {
           return response()->json('Aucun résultat', 404);
@@ -80,9 +78,9 @@ class PersonnageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showFaction($faction)
+    public function showPlanete($planete)
     {
-       $personnages = Personnage::where('faction', $faction)->get();
+       $personnages = Personnage::where('planete', $planete)->get();
 
        if ($personnages->count() == 0) {
           return response()->json('Aucun résultat', 404);
@@ -106,24 +104,22 @@ class PersonnageController extends Controller
       if(Gate::check('post', [Auth::user()])){
 
          $validator = Validator::make($request->all(), [
-               'lastname' => 'nullable|max:255',
-               'age' => 'nullable|numeric|max:9999',
-               'species' => 'nullable|max:255',
-               'faction' => 'required|string|max:255',
-               'actor' => 'nullable|max:255',
+            'name' => 'required|unique:personnages|string|max:255',
+            'height' => 'required',
+            'planete' => 'nullable',
+            'gender' => 'required|max:255',
          ]);
    
          if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
             }
 
-         $personnage = Personnage::where('firstname', $name)->first();
-            $personnage->lastname = $request->lastname;
-            $personnage->age = $request->age;
-            $personnage->faction = $request->faction;
-            $personnage->species = $request->species;
-            $personnage->actor = $request->actor;
-            $personnage->save();
+         $personnage = Personnage::where('name', $name)->first();
+         $personnage->name =  $request->name;
+         $personnage->height =  $request->height;
+         $personnage->gender =  $request->gender;
+         $personnage->planete_id =  $request->planete;
+         $personnage->save();
 
             return response()->json($personnage, 200);
 
@@ -144,7 +140,7 @@ class PersonnageController extends Controller
     {
       if(Gate::check('post', [Auth::user()])){
 
-         Personnage::where('firstname', $name)->delete();
+         Personnage::where('name', $name)->delete();
 
 
          return response()->json('personnage supprimé', 200);

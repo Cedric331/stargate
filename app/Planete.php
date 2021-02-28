@@ -14,4 +14,13 @@ class Planete extends Model
    protected $fillable = [
       'name', 'climat', 'pop', 'terrain'
    ];
+
+   /**
+    * The attributes that should be hidden for arrays.
+    *
+    * @var array
+    */
+   protected $hidden = [
+      'id', 'updated_at', 'created_at'
+   ];
 }
