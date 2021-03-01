@@ -40308,7 +40308,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-danger",
-                  attrs: { type: "button", "data-dismiss": "modal" }
+                  attrs: { type: "button", "data-bs-dismiss": "modal" }
                 },
                 [_vm._v("Annuler")]
               ),
@@ -40399,18 +40399,14 @@ var staticRenderFns = [
         _vm._v("\n                        Créer un Token\n                    ")
       ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-hidden": "true"
-          }
-        },
-        [_vm._v("×")]
-      )
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      })
     ])
   },
   function() {
@@ -40431,18 +40427,14 @@ var staticRenderFns = [
         _vm._v("\n                        Votre Token\n                    ")
       ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-hidden": "true"
-          }
-        },
-        [_vm._v("×")]
-      )
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      })
     ])
   },
   function() {
@@ -40454,7 +40446,7 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
+          attrs: { type: "button", "data-bs-dismiss": "modal" }
         },
         [_vm._v("Fermer")]
       )
