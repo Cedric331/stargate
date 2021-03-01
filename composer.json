@@ -16,6 +16,7 @@
         "laravel/passport": "~9.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.*",
+        "mckenziearts/laravel-notify": "^2.1",
         "mpociot/laravel-apidoc-generator": "^4.8"
     },
     "require-dev": {

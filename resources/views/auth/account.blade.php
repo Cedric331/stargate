@@ -53,7 +53,7 @@
          <p class="heading">{{ __('Voulez-vous supprimer votre compte?') }}</p>
        </div>
        <div class="modal-footer flex-center">
-         <a href="" class="btn  btn-outline-danger">{{ __('Oui') }}</a>
+         <a href="{{ route('account-delete') }}" class="btn  btn-outline-danger">{{ __('Oui') }}</a>
          <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">{{ __('Annuler') }}</a>
        </div>
      </div>

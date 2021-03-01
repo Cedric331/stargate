@@ -20,7 +20,9 @@ class AccountController extends Controller
 
    public function delete()
    {
-      User::find(Auth::user()->id)->delete();
+      // User::find(Auth::user()->id)->delete();
+
+      notify()->success('Laravel Notify is awesome!');
 
       return redirect()->route('home');
    }
