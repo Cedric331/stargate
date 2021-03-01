@@ -2658,6 +2658,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     this.prepareComponent();
   },
   methods: {
+    copy: function copy() {
+      var toCopy = document.getElementById('to-copy');
+      toCopy.select();
+      document.execCommand('copy');
+      return true;
+    },
+
     /**
      * Prepare the component.
      */
@@ -40087,7 +40094,7 @@ var render = function() {
             [
               _c("span", [
                 _vm._v(
-                  "\n                        Personal Access Tokens\n                    "
+                  "\n                       Mes Tokens\n                    "
                 )
               ]),
               _vm._v(" "),
@@ -40100,7 +40107,7 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                        Create New Token\n                    "
+                    "\n                        Créer un nouveau token\n                    "
                   )
                 ]
               )
@@ -40112,7 +40119,7 @@ var render = function() {
           _vm.tokens.length === 0
             ? _c("p", { staticClass: "mb-0" }, [
                 _vm._v(
-                  "\n                    You have not created any personal access tokens.\n                "
+                  "\n                    Vous n'avez créé aucun jeton d'accès personnel\n                "
                 )
               ])
             : _vm._e(),
@@ -40156,7 +40163,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                    Delete\n                                "
+                                  "\n                                    Supprimer\n                                "
                                 )
                               ]
                             )
@@ -40300,22 +40307,22 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-danger",
                   attrs: { type: "button", "data-dismiss": "modal" }
                 },
-                [_vm._v("Close")]
+                [_vm._v("Annuler")]
               ),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-success",
                   attrs: { type: "button" },
                   on: { click: _vm.store }
                 },
                 [
                   _vm._v(
-                    "\n                        Create\n                    "
+                    "\n                        Créer\n                    "
                   )
                 ]
               )
@@ -40339,14 +40346,31 @@ var render = function() {
             _c("div", { staticClass: "modal-body" }, [
               _c("p", [
                 _vm._v(
-                  "\n                        Here is your new personal access token. This is the only time it will be shown so don't lose it!\n                        You may now use this token to make API requests.\n                    "
+                  "\n                        Voici votre nouveau jeton d'accès personnel. C'est la seule fois où il sera montré, alors ne le perdez pas!\n                        Vous pouvez désormais utiliser ce jeton pour effectuer des requêtes API.\n                    "
                 )
               ]),
               _vm._v(" "),
               _c(
                 "textarea",
-                { staticClass: "form-control", attrs: { rows: "10" } },
+                {
+                  staticClass: "form-control",
+                  attrs: { id: "to-copy", rows: "10" }
+                },
                 [_vm._v(_vm._s(_vm.accessToken))]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary mt-2",
+                  attrs: { id: "copy", type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.copy()
+                    }
+                  }
+                },
+                [_vm._v("Copier le token")]
               )
             ]),
             _vm._v(" "),
@@ -40363,7 +40387,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", [_c("th", [_vm._v("Name")]), _vm._v(" "), _c("th")])
+      _c("tr", [_c("th", [_vm._v("Nom")]), _vm._v(" "), _c("th")])
     ])
   },
   function() {
@@ -40372,7 +40396,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h4", { staticClass: "modal-title" }, [
-        _vm._v("\n                        Create Token\n                    ")
+        _vm._v("\n                        Créer un Token\n                    ")
       ]),
       _vm._v(" "),
       _c(
@@ -40394,8 +40418,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "mb-0" }, [
-      _c("strong", [_vm._v("Whoops!")]),
-      _vm._v(" Something went wrong!")
+      _c("strong", [_vm._v("Oops!")]),
+      _vm._v(" Un problème est survenu!")
     ])
   },
   function() {
@@ -40404,9 +40428,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h4", { staticClass: "modal-title" }, [
-        _vm._v(
-          "\n                        Personal Access Token\n                    "
-        )
+        _vm._v("\n                        Votre Token\n                    ")
       ]),
       _vm._v(" "),
       _c(
@@ -40431,10 +40453,10 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("Close")]
+        [_vm._v("Fermer")]
       )
     ])
   }

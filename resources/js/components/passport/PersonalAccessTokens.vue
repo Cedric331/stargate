@@ -11,11 +11,11 @@
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span>
-                            Personal Access Tokens
+                           Mes Tokens
                         </span>
 
                         <a class="action-link" tabindex="-1" @click="showCreateTokenForm">
-                            Create New Token
+                            Créer un nouveau token
                         </a>
                     </div>
                 </div>
@@ -23,14 +23,14 @@
                 <div class="card-body">
                     <!-- No Tokens Notice -->
                     <p class="mb-0" v-if="tokens.length === 0">
-                        You have not created any personal access tokens.
+                        Vous n'avez créé aucun jeton d'accès personnel
                     </p>
 
                     <!-- Personal Access Tokens -->
                     <table class="table table-responsive table-borderless mb-0" v-if="tokens.length > 0">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Nom</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -45,7 +45,7 @@
                                 <!-- Delete Button -->
                                 <td style="vertical-align: middle;">
                                     <a class="action-link text-danger" @click="revoke(token)">
-                                        Delete
+                                        Supprimer
                                     </a>
                                 </td>
                             </tr>
@@ -61,7 +61,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            Create Token
+                            Créer un Token
                         </h4>
 
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -70,7 +70,7 @@
                     <div class="modal-body">
                         <!-- Form Errors -->
                         <div class="alert alert-danger" v-if="form.errors.length > 0">
-                            <p class="mb-0"><strong>Whoops!</strong> Something went wrong!</p>
+                            <p class="mb-0"><strong>Oops!</strong> Un problème est survenu!</p>
                             <br>
                             <ul>
                                 <li v-for="error in form.errors">
@@ -113,10 +113,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
 
-                        <button type="button" class="btn btn-primary" @click="store">
-                            Create
+                        <button type="button" class="btn btn-success" @click="store">
+                            Créer
                         </button>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            Personal Access Token
+                            Votre Token
                         </h4>
 
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -137,16 +137,16 @@
 
                     <div class="modal-body">
                         <p>
-                            Here is your new personal access token. This is the only time it will be shown so don't lose it!
-                            You may now use this token to make API requests.
+                            Voici votre nouveau jeton d'accès personnel. C'est la seule fois où il sera montré, alors ne le perdez pas!
+                            Vous pouvez désormais utiliser ce jeton pour effectuer des requêtes API.
                         </p>
 
-                        <textarea class="form-control" rows="10">{{ accessToken }}</textarea>
+                        <textarea id="to-copy" class="form-control" rows="10">{{ accessToken }}</textarea>
+                        <button id="copy" @click="copy()" class="btn btn-primary mt-2" type="button">Copier le token</button>
                     </div>
 
-                    <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
                     </div>
                 </div>
             </div>
@@ -189,6 +189,13 @@
         },
 
         methods: {
+           copy(){
+              var toCopy  = document.getElementById( 'to-copy' );
+
+            	toCopy.select();
+            	document.execCommand('copy');
+            	return true;
+           },
             /**
              * Prepare the component.
              */
