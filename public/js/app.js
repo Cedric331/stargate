@@ -40101,13 +40101,13 @@ var render = function() {
               _c(
                 "a",
                 {
-                  staticClass: "action-link",
+                  staticClass: "action-link btn btn-primary",
                   attrs: { tabindex: "-1" },
                   on: { click: _vm.showCreateTokenForm }
                 },
                 [
                   _vm._v(
-                    "\n                        Créer un nouveau token\n                    "
+                    "\n                        Générer un token\n                    "
                   )
                 ]
               )

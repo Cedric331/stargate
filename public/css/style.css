@@ -25,7 +25,18 @@
    color: white;
 }
 
+/* Account */
 
+.btn-account{
+   transition-duration: 1s;
+   transform: scale(1.0);
+}
+
+.btn-account:hover {
+   transition: 1s ease-in-out;
+   transition-duration: 1s;
+   border: 2px solid blue;
+ }
 
 /* Logo */
 #logo{

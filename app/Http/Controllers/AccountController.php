@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -14,5 +16,12 @@ class AccountController extends Controller
    public function index()
    {
       return view('auth.account');
+   }
+
+   public function delete()
+   {
+      User::find(Auth::user()->id)->delete();
+
+      return redirect()->route('home');
    }
 }

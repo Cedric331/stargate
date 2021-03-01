@@ -14,8 +14,8 @@
                            Mes Tokens
                         </span>
 
-                        <a class="action-link" tabindex="-1" @click="showCreateTokenForm">
-                            Créer un nouveau token
+                        <a class="action-link btn btn-primary" tabindex="-1" @click="showCreateTokenForm">
+                            Générer un token
                         </a>
                     </div>
                 </div>
