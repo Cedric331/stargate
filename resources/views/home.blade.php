@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="z-index:10;">
-   <x:notify-messages />
-</div>
 
 <section>
    <div class="card text-white">

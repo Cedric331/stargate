@@ -22,7 +22,7 @@ class AccountController extends Controller
    {
       // User::find(Auth::user()->id)->delete();
 
-      notify()->success('Laravel Notify is awesome!');
+      notify()->success('Votre compte est supprimé!');
 
       return redirect()->route('home');
    }
