@@ -41,7 +41,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                           <a class="nav-link" href="#">{{ __('Documentation') }}</a>
+                           <a class="nav-link" href="{{ route('docs') }}">{{ __('Documentation') }}</a>
                         </li>
                     </ul>
 

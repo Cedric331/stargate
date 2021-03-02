@@ -11,8 +11,8 @@
              <notification :showvue="{{ $show }}" :type="{{ $type }}" :message="{{ $message }}"></notification>
          @endif
             
-         <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Star Wars</strong></h1>
-         <a class="btn btn-light mt-4">{{ __('Comment utiliser l\'API') }}</a>
+         <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>API Star Wars</strong></h1>
+         <a class="btn btn-light mt-4" href="{{ route('docs') }}">{{ __('Comment utiliser l\'API') }}</a>
       </strong>
       </div>
     </div>

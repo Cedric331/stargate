@@ -35,7 +35,6 @@ class HomeController extends Controller
      */
     public function docs()
     {
-
         return view('docs.index');
     }
 }

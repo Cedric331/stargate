@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class AccountController extends Controller
 {
@@ -29,4 +30,5 @@ class AccountController extends Controller
          'message' => json_encode("Votre compte est supprimé")
          ]);
    }
+
 }
