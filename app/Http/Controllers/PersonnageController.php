@@ -12,6 +12,11 @@ use App\Http\Resources\Personnage as PersonnageRessource;
 
 class PersonnageController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('auth:api');
+   }
+   
       /**
      * Récupère l'ensemble des personnages
      *

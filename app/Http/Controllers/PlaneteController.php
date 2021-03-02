@@ -7,8 +7,14 @@ use Illuminate\Http\Request;
 
 class PlaneteController extends Controller
 {
+
+   public function __construct()
+   {
+      $this->middleware('auth:api');
+   }
+
     /**
-     * Display a listing of the resource.
+     * Retourne l'ensemble des planètes
      *
      * @return \Illuminate\Http\Response
      */
@@ -17,48 +23,24 @@ class PlaneteController extends Controller
       return Planete::all();
     }
 
-    /**
-     * Store a newly created resource in storage.
+      /**
+     * Permet de récupérer les planètes via le nom
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param [string] $name
+     * @return string
      */
-    public function store(Request $request)
+    public function showName($name)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Planete  $planete
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Planete $planete)
-    {
-        //
-    }
+       $planetes = Planete::where('name','LIKE','%'.$name.'%')->get();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Planete  $planete
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Planete $planete)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Planete  $planete
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Planete $planete)
-    {
-        //
+       if ($planetes->count() == 0) {
+          return response()->json('Aucun résultat', 404);
+       } 
+       else 
+       {
+         return response()->json($planetes, 200);
+       }
+       
     }
 }
