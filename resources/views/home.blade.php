@@ -27,7 +27,7 @@
        <div class="col-md-4 mb-4">
          <div class="card">
            <div class="view overlay">
-             <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20(49).jpg" class="card-img-top" alt="">
+             <img src="{{ asset('image/manda1.jpg') }}" class="card-img-top" alt="">
              <a>
                <div class="mask rgba-white-slight waves-effect waves-light"></div>
              </a>
@@ -47,7 +47,7 @@
        <div class="col-md-4 mb-4">
          <div class="card">
            <div class="view overlay">
-             <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(33).jpg" class="card-img-top" alt="">
+             <img src="{{ asset('image/starwars.jpg') }}" class="card-img-top" alt="">
              <a>
                <div class="mask rgba-white-slight waves-effect waves-light"></div>
              </a>
