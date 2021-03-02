@@ -6,6 +6,11 @@
      <img src="{{ asset('image/fond.jpg') }}" class="img-fluid"/>
       <div class="card-img-overlay text-center mt-5">
         <strong class="card-title">
+         @if (isset($show) && $show == true)
+        
+             <notification :showvue="{{ $show }}" :type="{{ $type }}" :message="{{ $message }}"></notification>
+         @endif
+            
          <h1 class="h1-reponsive text-white text-uppercase font-weight-bold mb-0"><strong>Star Wars</strong></h1>
          <a class="btn btn-light mt-4">{{ __('Comment utiliser l\'API') }}</a>
       </strong>
@@ -92,4 +97,5 @@
      </div>
    </section>
  </div>
+
 @endsection

@@ -11,6 +11,11 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component(
+   'notification',
+   require('./components/Notification.vue').default
+);
+
+Vue.component(
    'passport-clients',
    require('./components/passport/Clients.vue').default
 );

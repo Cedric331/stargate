@@ -20,8 +20,13 @@ class AccountController extends Controller
 
    public function delete()
    {
-      User::find(Auth::user()->id)->delete();
+      // User::find(Auth::user()->id)->delete();
 
-      return redirect()->route('home');
+
+      return view('home',[
+         'show' => true, 
+         'type' => json_encode("success"),
+         'message' => json_encode("Votre compte est supprimé")
+         ]);
    }
 }
