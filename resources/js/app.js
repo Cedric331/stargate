@@ -16,6 +16,11 @@ Vue.component(
 );
 
 Vue.component(
+   'information',
+   require('./components/Account.vue').default
+);
+
+Vue.component(
    'passport-clients',
    require('./components/passport/Clients.vue').default
 );

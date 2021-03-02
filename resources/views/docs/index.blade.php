@@ -36,10 +36,10 @@
             <!-- START_aa7c403060782129486eaf1c2ac85aef -->
             <h2 id="personnage" class="mt-4">Récupère l'ensemble des personnages</h2>
             <hr>
-            <h3>HTTP Request</h3>
+            <h3>Requête HTTP</h3>
             <p><code>GET api/personnages</code></p>
             <blockquote>
-                <p>Example request:</p>
+                <p>Exemple de requête:</p>
             </blockquote>
             <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/api/personnages" \
@@ -73,11 +73,11 @@ fetch(url, {
             <!-- START_735df3d2d78874ca4d1287d565f2d109 -->
             <h2 id="personnagePagination">Récupère l'ensemble des personnages avec pagination</h2>
             <hr>
-            <h3>HTTP Request</h3>
+            <h3>Requête HTTP</h3>
             <p><code>GET api/personnages/paginate/{pagination}</code></p>
-            <p>$pagination par défault à comme valeur 15</p>
+            <strong>$pagination par défault à comme valeur 15</strong>
             <blockquote>
-                <p>Example request:</p>
+                <p>Exemple de requête:</p>
             </blockquote>
             <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/api/personnages/paginate/1" \
@@ -111,10 +111,10 @@ fetch(url, {
             <!-- START_3d0535518f14e9504549de61301ddee8 -->
             <h2 id="personnageNom">Permet de récupérer les personnages via le nom</h2>
             <hr>
-            <h3>HTTP Request</h3>
+            <h3>Requête HTTP</h3>
             <p><code>GET api/personnages/{name}</code></p>
             <blockquote>
-                <p>Example request:</p>
+                <p>Exemple de requête:</p>
             </blockquote>
             <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/api/personnages/1" \
@@ -147,10 +147,10 @@ fetch(url, {
             <!-- START_129fa617725f71aeceb83754d1f2fb2d -->
             <h2 id="planete">Retourne l'ensemble des planètes</h2>
             <hr>
-            <h3>HTTP Request</h3>
+            <h3>Requête HTTP</h3>
             <p><code>GET api/planetes</code></p>
             <blockquote>
-                <p>Example request:</p>
+                <p>Exemple de requête:</p>
             </blockquote>
             <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/api/planetes" \
@@ -183,10 +183,10 @@ fetch(url, {
             <!-- START_0173da3cd9876acf45da964bccd2a5e2 -->
             <h2 id="planeteNom">Permet de récupérer les planètes via le nom</h2>
             <hr>
-            <h3>HTTP Request</h3>
+            <h3>Requête HTTP</h3>
             <p><code>GET api/planetes/{planetes}</code></p>
             <blockquote>
-                <p>Example request:</p>
+                <p>Exemple de requête:</p>
             </blockquote>
             <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/api/planetes/1" \

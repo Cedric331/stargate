@@ -20,6 +20,8 @@ Route::get('/docs', 'HomeController@docs')->name('docs');
 Route::middleware(['auth'])->group(function () {
    
    Route::get('/account', 'AccountController@index')->name('account-index');
+   Route::get('/account/information', 'AccountController@information')->name('account-information');
+   Route::post('/account/information', 'AccountController@update');
    Route::delete('/account/delete', 'AccountController@delete')->name('account-delete');
 
 });
